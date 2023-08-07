@@ -37,6 +37,8 @@ export class PaymentController {
 
     @Post()
     async create_payment_form(@Body() bodyData:any, @Res() res:FastifyReply, @Session() session:secureSession.Session){
+
+        console.log(bodyData)
         
         const _s = session.get('answers')
         const _c = session.get('certificate')
