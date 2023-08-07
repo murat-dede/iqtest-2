@@ -24,8 +24,6 @@ export class PaymentController {
 
             user_data = await this.userService.get_user_data(user_id['id'])
         }
-
-        console.log('burada\n\n')
         console.log(payment_form)
         return {
             title: 'Ödeme Yap',
@@ -46,8 +44,6 @@ export class PaymentController {
             const payment_form = await this.paymentService.create_payment_form(bodyData, product_name)
             
             session.set('payment_form', payment_form)
-            console.log(payment_form)
-            console.log(session.get('payment_form'))
             res.redirect(302, '/odeme')
         }
         return false
