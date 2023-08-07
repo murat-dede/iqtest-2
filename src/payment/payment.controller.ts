@@ -50,41 +50,41 @@ export class PaymentController {
 
     @Post('callBack')
     async callBack(@Session() session:secureSession.Session, @Body() bodyData:any, @Res() res:FastifyReply){
-        console.log('burada')        
-        // if (bodyData.status === 'success'){
-        //     const data = session.get('payment_form')
-        //     const _s = session.get('answers')
-        //     const _c = session.get('certificate') || 'null'
-        //     const score = _s ? await this.scoreService.score_calculate(_s['answer_json_list']) : 0;
-        //     const product_name = _s && _s['product_name'] ? 'test' : 'certificate';
+              
+        if (bodyData.status === 'success'){
+            const data = session.get('payment_form')
+            const _s = session.get('answers')
+            const _c = session.get('certificate') || 'null'
+            const score = _s ? await this.scoreService.score_calculate(_s['answer_json_list']) : 0;
+            const product_name = _s && _s['product_name'] ? 'test' : 'certificate';
 
-        //     const save_data = {
-        //         user: {
-        //             name: data['fetch_data']['Customer']['customerName'],
-        //             surname: data['fetch_data']['Customer']['customerSurname'],
-        //             customerId: data['fetch_data']['Customer']['customerId'],
-        //             phone_number: data['fetch_data']['Customer']['gsmNumber'],
-        //             email: data['fetch_data']['Customer']['email'],
-        //             identity_number: data['fetch_data']['Customer']['identityNumber'],
-        //             city: data['fetch_data']['Customer']['city']
-        //         },
-        //         score: {
-        //             score: score
-        //         },
-        //         product: {
-        //             name: product_name,
-        //             detail: data['fetch_data']['Products'],
-        //             status: bodyData
-        //         },
-        //         c: _c
-        //     }
-        //     const response = await this.paymentService.create_user(save_data)
-        //     session.delete()
-        //     res.redirect(302, '/user/result/' + response)
-        // }else{
-        //     session.delete()
-        //     res.redirect(500, '/')
-        // }
+            const save_data = {
+                user: {
+                    name: data['fetch_data']['Customer']['customerName'],
+                    surname: data['fetch_data']['Customer']['customerSurname'],
+                    customerId: data['fetch_data']['Customer']['customerId'],
+                    phone_number: data['fetch_data']['Customer']['gsmNumber'],
+                    email: data['fetch_data']['Customer']['email'],
+                    identity_number: data['fetch_data']['Customer']['identityNumber'],
+                    city: data['fetch_data']['Customer']['city']
+                },
+                score: {
+                    score: score
+                },
+                product: {
+                    name: product_name,
+                    detail: data['fetch_data']['Products'],
+                    status: bodyData
+                },
+                c: _c
+            }
+            const response = await this.paymentService.create_user(save_data)
+            session.delete()
+            res.redirect(302, '/user/result/' + response)
+        }else{
+            session.delete()
+            res.redirect(500, '/')
+        }
     }
     
 }
