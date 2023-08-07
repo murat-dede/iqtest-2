@@ -1,0 +1,73 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <img src="/static/images/header-3.png" alt="" class="img-fluid">
+        </div>
+        <div class="col-md-6 mt-auto mb-auto text-center">
+            {{#if verify}}
+                        <h2>
+                Tebrikler Sonuçlara Başarıyla Ulaştınız
+            </h2>
+            <h1 class="primary-color">
+                Puanınız: {{score}}
+            </h1>
+            <p>
+                Detaylı Sonuçlara Ulaşmak İçin Sertifikanızı Görüntüleyin
+            </p>
+            <button class="btn primary-bg-color text-white" id="cert_buy">
+                Sertifikalara Git<i class="fas fa-arrow-right" style="margin-left: 10px;" ></i>
+            </button>
+            <div class="sharethis-inline-share-buttons mt-4"></div>
+            {{else}}
+            <h1 class="text-danger" >
+                Bir sorun meydana geldi.
+            </h1>
+            {{/if}}
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card p-3 h-100">
+                <p>
+                    Soyut düşünmede üst düzey bir yeteneğiniz var. Bu yeteneğinizi mutlaka doğru tercihlerle birleştirmeli, potansiyelinizi değerlendirmelisiniz.
+                </p>
+                <span class="text-uppercase primary-color" >
+                    sayısal zeka analizi
+                </span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card p-3 h-100">
+                <p>
+                    Görsel zekanız %1'lik dilime denk gelen oldukça nadir bir düzeyde, gördüğünüzü algılama süreciniz, toplumun %99'undan çok daha üst bir seviyededir.
+
+                </p>
+                <span class="text-uppercase primary-color" >
+                    görsel zeka analizi
+                </span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card p-3 h-100">
+                <p>
+                    Siz, olağan üstü bir akıl gücüne sahipsiniz bu yeteneğinizin karşılık bulduğu işlerde çalışmalı, kendinizi geliştireceğiniz ortamlarda yaşamalısınız
+
+                </p>
+                <span class="text-uppercase primary-color" >
+                    değerlendirme
+                </span>
+
+            </div>
+        </div>
+    </div>
+</div>
+{{{paymentScript.CheckoutFormData}}}
+<script>
+    $('#cert_buy').on('click', function(){
+        window.location.href = '/certificate'
+    })
+</script>
+<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=64cf8714cbb13e0019b60500&product=inline-share-buttons&source=platform" async="async"></script>

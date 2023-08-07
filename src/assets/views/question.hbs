@@ -1,0 +1,85 @@
+<div class="container questionsContainer">
+  <div class="row">
+    <div class="card">
+      <div class="card-header bg-transparent questions-card">
+        <div class="d-flex justify-content-between align-items-center">
+          <button class="btn btn-link text-primary" id="previousButton"><i class="fas fa-arrow-left"></i></button>
+          <h2>ZEKAMETRE</h2>
+          <button class="btn btn-link text-primary" id="nextButton"><i class="fas fa-arrow-right"></i></button>
+        </div>
+        <div class="text-center">
+          <span id="timer">0:00</span>
+        </div>
+      </div>
+      <div class="content">
+        <div class="row p-4" id="questionContainer">
+          <div class="col-md-6">
+            <img class="img-fluid" alt="" id="question_img">
+          </div>
+          <div class="col-md-6 mt-auto mb-auto">
+            <div class="question">
+              <p id="question" style="font-size: 1.2em; font-weight: 600;">
+                Soru
+              </p>
+              <ul id="answers"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Başlık -->
+      <div class="modal-header text-center">
+        <h4 class="modal-title">Testi Başarıyla Tamamladınız !!</h4>
+      </div>
+
+      <!-- Modal İçerik -->
+      <div class="modal-body text-center">
+        <p>Test sonuçlarınızı görebilmek için lütfen ödeme yapınız.</p>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Kapat</button>
+        <button type="button" id="get_payment" class="btn primary-bg-color text-white">Ödeme Yap</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="verifyModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Başlık -->
+      <div class="modal-header text-center">
+        <h1 class="modal-title">Uyarı</h1>
+      </div>
+
+      <!-- Modal İçerik -->
+      <div class="modal-body text-center">
+        <ul>
+          <li class="d-block" >10 Adet Soruyu 5 Dakika İçerisinde Çözmelisin</li>
+          <li class="d-block">Soruları çözerken, dışarıdan herhangi bir yardım almamalısın</li>
+          <li class="d-block">Kullanım koşullarını kabul et</li>
+          <li class="d-block">Adını Soyadını Paylaş</li>
+          <li class="d-block secondary-color">Sertifikanı Al</li>
+        </ul>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Kapat</button>
+        <button type="button" id="verifyButton" class="btn primary-bg-color text-white">Kullanım Koşullarını Kabul Et</button>
+      </div>
+
+    </div>
+  </div>
+</div>

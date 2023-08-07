@@ -1,0 +1,31 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <div class="card p-4">
+                <div class="card-title">
+                    <h1 class="card-title text-center">Giriş Yap</h1>
+                </div>
+                <div class="card-body">
+                    <form action="/user/login" method="post">
+                        <div class="form-group mb-3">
+                            <input type="text" class="form-control" placeholder="Email Adresi" name="email"
+                                autocomplete="off">
+                        </div>
+                        <div class="form-group mb-3">
+                            <input type="password" class="form-control" placeholder="Şifre" name="identify_number"
+                                autocomplete="off">
+                        </div>
+                        <div class="form-group text-center">
+                            <p style="font-size: 10px;" class="text-danger">Şifreniz sistem tarafından şifreniz T.C
+                                kimlik numaranız olarak belirlenmiştir.</p>
+                            <button class="btn primary-bg-color text-white" type="submit">
+                                Giriş Yap
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

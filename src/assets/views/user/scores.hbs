@@ -1,0 +1,26 @@
+<div class="container table-container">
+    <div class="row">
+        <div class="col d-flex justify-content-center">
+            <table class="table table-bordered text-center">
+                <thead class="text-center">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Puan</th>
+                        <th scope="">Tarih</th>
+                        <th scope="">İşlem</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each data}}
+                                        <tr>
+                        <th scope="row"> {{this.id}} </th>
+                        <td>{{this.score}}</td>
+                        <td>asd</td>
+                        <td><a href="/certificate/payment/{{this.id}}"><span class="text-success" style="font-size: 12px;">Sertifika Al</span></a></td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

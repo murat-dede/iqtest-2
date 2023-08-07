@@ -1,0 +1,30 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 text-center mt-auto mb-auto">
+            <div class="title">
+                <div class="content">
+                    <h1 style="font-size: 3em; font-weight: 900;" class="animate__animated animate__bounce" >
+                        Zekana güveniyor musun?
+                    </h1>
+                    <p>
+                        Teste başla soruları çöz. Dünyada ki sıralamanı gör. Başarını ödüllendiren sertifikanı al.
+                    </p>
+                    <button class="btn primary-bg-color btn-xl text-white" id="get_questions">
+                        Teste Başla
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <img src="/static/images/header.jpg" alt="" class="img-fluid" style="max-height: 85vh;">
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+        $('#get_questions').on('click', function(){
+            window.location.href = '/sorular';
+        })
+    })
+</script>

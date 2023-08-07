@@ -1,0 +1,71 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 text-center mt-auto mb-auto">
+            <h1>
+                Tebrikler 
+            </h1>
+            <h2>
+                Sonucunuzu öğrenmeye son bir adım kaldı.
+            </h2>
+            <hr>
+            <p class="secondary-color" style="font-size: 12px;">
+                Ödeme yapıldıktan sonra sisteme giriş yapabilir sertifikanızı alabilirsiniz.
+            </p>
+            <hr>
+            <div class="payment-form">
+                <form action="/odeme" method="post">
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Adınız" name="name" autocomplete="off" {{#if user_data.name}}value="{{user_data.name}}"{{/if}}>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Soyadınız" name="surname"
+                                autocomplete="off" {{#if user_data.surname}}value="{{user_data.surname}}"{{/if}} >
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Telefon Numaranız" name="gsmNumber"
+                                autocomplete="off" {{#if user_data.phone_number}}value="{{user_data.phone_number}}"{{/if}} >
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Mail Adresiniz" name="email"
+                                autocomplete="off" {{#if user_data.email}}value="{{user_data.email}}"{{/if}} >
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="T.C Kimlik No" name="identify_no"
+                                autocomplete="off" {{#if user_data.identify_number}}value="{{user_data.identify_number}}"{{/if}} >
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Ülke" name="country"
+                                autocomplete="off" {{#if user_data.country}}value="{{user_data.country}}"{{/if}} >
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="İl" name="city" autocomplete="off" {{#if user_data.city}}value="{{user_data.city}}"{{/if}} >
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="İlçe" name="district"
+                                autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <button class="btn primary-bg-color text-white">
+                                <i class="fas fa-credit-card" style="margin-right: 10px;"></i>Ödeme Yap
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <img src="/static/images/header-2.png" alt="" class="img-fluid" style="max-width: 48vw;">
+        </div>
+    </div>
+</div>
+<div id='weePay-checkout-form' class='popup'>
+{{{paymentScript.CheckoutFormData}}}

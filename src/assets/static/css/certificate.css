@@ -1,0 +1,13 @@
+@media screen and (max-width: 768px) {
+  .certifica-container .card {
+    width: 80%;
+  }
+}
+
+
+.certifica-container .card {
+  width: 60%;
+  background-image: url('/static/images/c-background.svg');
+  /* border: 15px solid #DD4769; */
+  padding: 20px;
+}

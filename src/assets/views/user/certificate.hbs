@@ -1,0 +1,45 @@
+<div class="certifica-container container">
+    <div class="row justify-content-center align-items-center">
+        <div class="certificate-card card text-white text-center">
+            <div class="card-title">
+                <h1 class="p-3">
+                    Zekametre Başarı Sertifikası
+                </h1>
+            </div>
+            <div class="body">
+                <hr>
+                <div class="name-surname">
+                    <p style="font-weight: 900; font-family: montserrat-bold; font-size: 1.3em;" > {{data.score.user.name}}&nbsp;{{data.score.user.surname}}</p>
+                </div>
+                <div class="content">
+                    <p>
+                        {{detail.description}}
+                    </p>
+                </div>
+            </div>
+
+            <div class="card-footer mt-3">
+                <div class="score">
+                    <h4 style="font-weight: 900;" >
+                        {{detail.status}}
+                    </h4>
+                    <h1>
+                        Puan: {{data.score.score}}
+                    </h1>
+                </div>
+                <div class="description">
+                    <p>
+                        Sertifika ID: {{data.id}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sharethis-inline-share-buttons mt-4 "></div>
+    <div class="button text-center mt-4">
+        <button class="btn primary-bg-color text-white">
+            Sertifikayı İndir
+        </button>
+    </div>
+</div>
+<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=64cf8714cbb13e0019b60500&product=inline-share-buttons&source=platform" async="async"></script>
