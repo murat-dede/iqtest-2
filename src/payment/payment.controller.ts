@@ -53,7 +53,6 @@ export class PaymentController {
     async callBack(@Session() session:secureSession.Session, @Body() bodyData:any, @Res() res:FastifyReply){
     
         if (bodyData.status === 'success'){
-            // Save database
             const data = session.get('payment_form')
             const _s = session.get('answers')
             const _c = session.get('certificate') || 'null'
@@ -77,7 +76,8 @@ export class PaymentController {
                     name: product_name,
                     detail: data['fetch_data']['Products'],
                     status: bodyData
-                }
+                },
+                c: _c
             }
             const response = await this.paymentService.create_user(save_data)
             session.delete()

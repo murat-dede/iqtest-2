@@ -16,7 +16,7 @@ export class GlobalExceptionFilter implements ExceptionFilter {
     }
 
     if (statusCode){
-      response.redirect('/')
+      response.redirect('/user/login')
     }
 
     // response

@@ -16,7 +16,11 @@
                 <form action="/odeme" method="post">
                     <div class="row">
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Adınız" name="name" autocomplete="off" {{#if user_data.name}}value="{{user_data.name}}"{{/if}}>
+                            <input type="text" 
+                            class="form-control" 
+                            placeholder="Adınız" 
+                            name="name" autocomplete="off" {{#if user_data.name}}value="{{user_data.name}}"{{/if}}
+                            >
                         </div>
                         <div class="col">
                             <input type="text" class="form-control" placeholder="Soyadınız" name="surname"
