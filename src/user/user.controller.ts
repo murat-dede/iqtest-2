@@ -1,9 +1,10 @@
-import { Body, Controller, Get, Param, Post, Render, Res, Session } from "@nestjs/common";
+import { Body, Controller, Get, Param, Post, Render, Res, Session, UseGuards } from "@nestjs/common";
 import { UserService } from "./user.service";
 import * as secureSession from '@fastify/secure-session'
 import { JwtService } from "src/auth/jwt.service";
 import { Response } from "express";
 import {FastifyReply} from 'fastify'
+import { UserAuthGuard } from "src/auth/auth.guard";
 
 @Controller('user')
 export class UserController {
@@ -55,6 +56,7 @@ export class UserController {
 
     @Get('scores')
     @Render('user/scores')
+    @UseGuards(UserAuthGuard)
     async get_scores(@Session() session:secureSession.Session){
         const token = session.get('token')
         const token_verify = await this.jwtService.verifyToken(token['token'])

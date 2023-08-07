@@ -1,9 +1,10 @@
-import { Controller, Get, Param, Render, Res, Session } from "@nestjs/common";
+import { Controller, Get, Param, Render, Res, Session, UseGuards } from "@nestjs/common";
 import {FastifyReply} from 'fastify'
 import * as secureSession from '@fastify/secure-session'
 import { CertificateService } from "./certificate.service";
 import { JwtService } from "src/auth/jwt.service";
 import { ScoreService } from "src/services/score.service";
+import { UserAuthGuard } from "src/auth/auth.guard";
 
 @Controller('certificate')
 export class CertificateController {
@@ -27,6 +28,7 @@ export class CertificateController {
 
     @Get('my')
     @Render('user/certificates')
+    @UseGuards(UserAuthGuard)
     async get_all_certificate(@Session() session:secureSession.Session){
         const token = session.get('token')
         const user_id = this.jwtService.verifyToken(token['token'])
