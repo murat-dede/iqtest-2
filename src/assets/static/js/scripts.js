@@ -36,7 +36,7 @@ $(document).ready(function () {
         startTimer()
         $('#verifyModal').modal('hide')
         $.ajax({
-            url: '/sorular/allQuestion',
+            url: 'https://zekametre.com/sorular/allQuestion',
             method: 'GET',
             dataType: 'json',
             success: function (data) {
