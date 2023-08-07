@@ -121,7 +121,7 @@ $(document).ready(function () {
                 $('#get_payment').on('click', function () {
                     selectedAnswers.push({product_name: 'test'})
 
-                    fetch('/sorular/saveAnswer', {
+                    fetch('https://zekametre.com/sorular/saveAnswer', {
                         method: 'POST',
                         body: JSON.stringify(selectedAnswers),
                     })
