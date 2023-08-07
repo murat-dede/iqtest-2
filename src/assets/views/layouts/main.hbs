@@ -17,7 +17,7 @@
 
 <body>
     <div class="bg">
-        <img src="/static/images/bg.png" alt="" class="img-fluid">
+        <img src="/static/images/bg.png" alt="" class="img-fluid" id="bg-img">
     </div>
     <nav class="navbar navbar-expand-lg bg-transparent p-4">
         <a class="navbar-brand logo text-uppercase text-white" href="/">zekametre</span></a>
@@ -37,11 +37,12 @@
                     <a class="nav-link" href="/sorular">Teste Başla</a>
                 </li>
                 {{#if isLogin}}
-                                <li class="nav-item">
+                <li class="nav-item">
                     <a class="nav-link" href="/user/scores">Puanlarım</a>
                 </li>
-                                <li class="nav-item">
-                    <a class="nav-link" href="/certificate/my"><i class="fas fa-star" style="margin-right: 10px;"></i>Sertifikalarım</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="/certificate/my"><i class="fas fa-star"
+                            style="margin-right: 10px;"></i>Sertifikalarım</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/user/logout">Çıkış Yap<i class="fas fa-sign-in-alt"
@@ -100,6 +101,16 @@
         </div>
         <!-- Copyright -->
     </footer>
+    <script>
+        function toggleNavbar() {
+  const navbar = document.getElementById('navbarNav');
+  navbar.classList.toggle('show');
+}
+
+const navbarToggler = document.querySelector('.navbar-toggler');
+navbarToggler.addEventListener('click', toggleNavbar);
+
+    </script>
 </body>
 
 </html>

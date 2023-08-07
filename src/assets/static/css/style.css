@@ -30,7 +30,9 @@ a {
     }
     .logo {
         letter-spacing: 0px !important;
-        font-size: .9em !important;
+        font-size: 1em !important;
+        color: white !important;
+        opacity: 0;
     }
     .questionsContainer {
         max-width: 80% !important;
@@ -41,12 +43,18 @@ a {
     .best-table{
         max-width: 80% !important;
     }
+    
+
 }
 
 .bg {
     position: absolute;
     top: 0;
     z-index: -1;
+}
+.bg img {
+    width: 100%;
+    height: auto;
 }
 
 .logo {
