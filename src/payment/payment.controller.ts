@@ -25,6 +25,7 @@ export class PaymentController {
             user_data = await this.userService.get_user_data(user_id['id'])
         }
 
+        console.log('burada\n\n')
         console.log(user_data)
         return {
             title: 'Ödeme Yap',
