@@ -16,6 +16,7 @@ async function bootstrap() {
 
   AppDataSource.initialize().then(() => console.log('Database connect success')).catch((err) => console.log('Database connect not success'))
 
+  app.enableCors()
   app.useStaticAssets({
     root: join(__dirname, '..', 'src/assets/static/'),
     prefix: '/static/',
