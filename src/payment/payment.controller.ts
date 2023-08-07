@@ -26,7 +26,7 @@ export class PaymentController {
         }
 
         console.log('burada\n\n')
-        console.log(user_data)
+        console.log(payment_form)
         return {
             title: 'Ödeme Yap',
             paymentScript: payment_form?.data,
@@ -37,8 +37,6 @@ export class PaymentController {
 
     @Post()
     async create_payment_form(@Body() bodyData:any, @Res() res:FastifyReply, @Session() session:secureSession.Session){
-
-        console.log(bodyData)
         
         const _s = session.get('answers')
         const _c = session.get('certificate')
@@ -48,6 +46,8 @@ export class PaymentController {
             const payment_form = await this.paymentService.create_payment_form(bodyData, product_name)
             
             session.set('payment_form', payment_form)
+            console.log(payment_form)
+            console.log(session.get('payment_form'))
             res.redirect(302, '/odeme')
         }
         return false
