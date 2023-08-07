@@ -28,7 +28,7 @@ export class PaymentController {
         return {
             title: 'Ödeme Yap',
             paymentScript: payment_form?.data,
-            user_data: user_data
+            user_data: user_data || null
         }
 
     }
