@@ -127,7 +127,7 @@ $(document).ready(function () {
                     })
                     .then((result) => {
                         if (result.status === 200){
-                            window.location.href = 'https://' + window.location.hostname + '/odeme';
+                            window.location.href ='https://zekametre.com/odeme';
                         }
                     })
                 })

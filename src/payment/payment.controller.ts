@@ -24,7 +24,7 @@ export class PaymentController {
 
             user_data = await this.userService.get_user_data(user_id['id'])
         }
-        console.log(payment_form)
+        
         return {
             title: 'Ödeme Yap',
             paymentScript: payment_form?.data,
@@ -42,7 +42,6 @@ export class PaymentController {
         let product_name = _c ? 'certificate' : (_s ? 'test' : 'default');
         if (_s || _c){
             const payment_form = await this.paymentService.create_payment_form(bodyData, product_name)
-            
             session.set('payment_form', payment_form)
             res.redirect(302, '/odeme')
         }
