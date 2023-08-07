@@ -40,7 +40,8 @@ async function bootstrap() {
       secure: true,
       expires: new Date(Date.now() + 3600000),
       path: '/'
-    }
+    },
+
   });
   //app.useGlobalFilters(new GlobalExceptionFilter())
   await app.listen(process.env.PORT ?? 3000, process.env.HOST || '0.0.0.0');
