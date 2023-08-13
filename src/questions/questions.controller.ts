@@ -30,7 +30,6 @@ export class QuestionsController {
     async save_answer(@Body() bodyData:any, @Res() res:FastifyReply, @Session() session:secureSession.Session){
         const result = await this.questionsService.save_answers(bodyData)
         session.set('answers', result)
-
         res.status(200).send({
             message: 'success',
         })

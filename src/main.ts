@@ -6,6 +6,7 @@ import secureSession from '@fastify/secure-session';
 import * as crypto from 'crypto'
 import { AppDataSource } from './services/mysql.service';
 import { GlobalExceptionFilter } from './middleware/notfound.middleware';
+import { memoryStore } from 'cache-manager';
 
 
 async function bootstrap() {
@@ -35,15 +36,14 @@ async function bootstrap() {
     secret: 'averylogphrasebiggerthanthirtytwochars',
     salt: 'mq9hDxBVDbspDR6n',
     key: key,
-    cookieName: 'session',
+    cookieName: 'iqtest',
     cookie: {
       secure: true,
       expires: new Date(Date.now() + 3600000),
       path: '/'
-    },
-
+    }
   });
-  //app.useGlobalFilters(new GlobalExceptionFilter())
+  app.useGlobalFilters(new GlobalExceptionFilter())
   await app.listen(process.env.PORT ?? 3000, process.env.HOST || '0.0.0.0');
 }
 bootstrap();

@@ -75,6 +75,7 @@ $(document).ready(function () {
                                 $('#answers li i').removeClass('fas fa-check-circle');
                                 li.append($('<i>').addClass('fas fa-check-circle').css('margin-left', '5px'))
                                 selectedAnswers.push(selecedAnswer)
+                                showNextQuestion()
                             } else {
                                 li.find('i').removeClass().addClass('fas fa-check-circle');
                                 selectedAnswers[answerIndex].chooice = key

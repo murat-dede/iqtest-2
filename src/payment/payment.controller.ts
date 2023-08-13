@@ -18,16 +18,15 @@ export class PaymentController {
         const payment_form = session.get('payment_form')
         const token = session.get('token')
         let user_data = null
-
+        
         if (token){
             const user_id = this.jwtService.verifyToken(token['token'])
-
             user_data = await this.userService.get_user_data(user_id['id'])
         }
         
         return {
             title: 'Ödeme Yap',
-            paymentScript: payment_form?.data,
+            paymentScript: payment_form,
             user_data: user_data || null
         }
 
@@ -42,7 +41,7 @@ export class PaymentController {
         let product_name = _c ? 'certificate' : (_s ? 'test' : 'default');
         if (_s || _c){
             const payment_form = await this.paymentService.create_payment_form(bodyData, product_name)
-            session.set('payment_form', payment_form)
+            session.set('payment_form', payment_form?.data?.CheckoutFormData)
             res.redirect(302, '/odeme')
         }
         return false
