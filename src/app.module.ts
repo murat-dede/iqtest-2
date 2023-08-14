@@ -23,8 +23,8 @@ import { CacheService } from './services/cache.service';
         useFactory: async () => ({
           store: await redisStore({
             socket: {
-              host: 'localhost',
-              port: 6379
+              host: 'redis-17024.c242.eu-west-1-2.ec2.cloud.redislabs.com',
+              port: 17024
             }
           })
         })
