@@ -26,11 +26,15 @@ export class QuestionsController {
 
     @Post('saveAnswer')
     async save_answer(@Body() bodyData:any, @Res() res:FastifyReply, @Session() session:secureSession.Session):Promise<void>{
-        const result = await this.questionsService.save_answers(bodyData)
-        //await this.cacheService.set('answers', result, 600000)
-        
-        res.status(200).send({
-            message: 'success',
-        })
+        try{
+            const result = await this.questionsService.save_answers(bodyData)
+            await this.cacheService.set('answers', result, 600000)
+
+            res.status(200).send({
+                message: 'success',
+            })
+        }catch(err){
+            console.log(err)
+        }
     }
 } 
