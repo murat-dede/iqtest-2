@@ -21,19 +21,23 @@ export class PaymentController {
     @Get()
     @Render('payment')
     async get_payment_page(@Session() session:secureSession.Session):Promise<any>{
-        const payment_form:any = await this.cacheService.get('payment_form')
-        const token = session.get('token')
-        
-        let user_data = null
-        if (token){
-            const user_id = this.jwtService.verifyToken(token['token'])
-            user_data = await this.userService.get_user_data(user_id['id'])
-        }
-        
-        return {
-            title: 'Ödeme Yap',
-            paymentScript: payment_form?.data?.CheckoutFormData,
-            user_data: user_data || null
+        try{
+            const payment_form:any = await this.cacheService.get('payment_form')
+            const token = session.get('token')
+
+            let user_data = null
+            if (token){
+                const user_id = this.jwtService.verifyToken(token['token'])
+                user_data = await this.userService.get_user_data(user_id['id'])
+            }
+
+            return {
+                title: 'Ödeme Yap',
+                paymentScript: payment_form?.data?.CheckoutFormData,
+                user_data: user_data || null
+            }
+        }catch(err){
+            console.log(err)
         }
 
     }
