@@ -36,7 +36,7 @@ $(document).ready(function () {
         startTimer()
         $('#verifyModal').modal('hide')
         $.ajax({
-            url: 'http://localhost:3000/sorular/allQuestion',
+            url: 'https://zekametre.com/sorular/allQuestion',
             method: 'GET',
             dataType: 'json',
             success: function (data) {
@@ -122,13 +122,13 @@ $(document).ready(function () {
                 $('#get_payment').on('click', function () {
                     selectedAnswers.push({product_name: 'test'})
 
-                    fetch('http://localhost:3000/sorular/saveAnswer', {
+                    fetch('https://zekametre.com/sorular/saveAnswer', {
                         method: 'POST',
                         body: JSON.stringify(selectedAnswers),
                     })
                     .then((result) => {
                         if (result.status === 200){
-                            window.location.href ='http://localhost:3000/odeme';
+                            window.location.href ='https://zekametre.com/odeme';
                         }
                     })
                 })
