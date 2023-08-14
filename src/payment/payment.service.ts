@@ -46,7 +46,7 @@ export class PaymentService {
                     "ipAddress": "192.168.1.1",
                     "installmentNumber": 1, // Uygulanacak Taksit Sayısı
                     "description": "Açıkalama", // Açıklama
-                    "callBackUrl": "https://zekametre.com/odeme/callBack"// Response URL
+                    "callBackUrl": "http://localhost:3000/odeme/callBack"// Response URL
                 },
                 "Customer": {
                     "customerId": customer_id, // alıcı müşteri Id 

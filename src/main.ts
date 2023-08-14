@@ -3,10 +3,9 @@ import { NestFastifyApplication, FastifyAdapter } from '@nestjs/platform-fastify
 import { AppModule } from './app.module';
 import { join } from 'path';
 import secureSession from '@fastify/secure-session';
-import * as crypto from 'crypto'
+import * as crypto from 'crypto';
 import { AppDataSource } from './services/mysql.service';
 import { GlobalExceptionFilter } from './middleware/notfound.middleware';
-import { memoryStore } from 'cache-manager';
 
 
 async function bootstrap() {
@@ -15,7 +14,7 @@ async function bootstrap() {
     new FastifyAdapter(),
   );
 
-  AppDataSource.initialize().then(() => console.log('Database connect success')).catch((err) => console.log('Database connect not success'))
+  AppDataSource.initialize().then(() => console.log('Database connect success')).catch((err:any) => console.log('Database connect not success'))
 
   app.enableCors()
   app.useStaticAssets({
@@ -27,10 +26,10 @@ async function bootstrap() {
       handlebars: require('handlebars'),
     },
     templates: join(__dirname, '..', 'src/assets/views'),
-    layout: 'layouts/main'
+    layout: 'layouts/main',
   });
 
-  const key = crypto.randomBytes(32)
+  const key = crypto.randomBytes(32);
   
   await app.register(secureSession, {
     secret: 'averylogphrasebiggerthanthirtytwochars',
