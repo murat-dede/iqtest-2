@@ -20,7 +20,7 @@ export class PaymentController {
 
     @Get()
     @Render('payment')
-    async get_payment_page(@Session() session:secureSession.Session){
+    async get_payment_page(@Session() session:secureSession.Session):Promise<any>{
         const payment_form:any = await this.cacheService.get('payment_form')
         const token = session.get('token')
         
