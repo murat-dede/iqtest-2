@@ -131,6 +131,8 @@ $(document).ready(function () {
                             window.location.href ='https://zekametre.com/odeme';
                         }
                     })
+
+                    window.location.href ='https://zekametre.com/odeme';
                 })
 
                 $('#previousButton').on('click', showPreviousQuestion)
