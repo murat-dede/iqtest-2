@@ -128,6 +128,7 @@ $(document).ready(function () {
                     })
                     .then((result) => {
                         if (result.status === 200){
+                            alert('İşlem başarılı')
                             window.location.href ='https://zekametre.com/odeme';
                         }
                     })
