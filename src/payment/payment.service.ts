@@ -95,14 +95,15 @@ export class PaymentService {
 
     async create_user(userData:any){
 
-        const product_name = userData['product']['name'][0]
+        const product_name = userData['product']['name']
         const score = new Score()
         score.score = userData['score']['score']
 
-        if (product_name === 'c'){
+        if (product_name === 'certificate'){
             const _score = await this.scoreRepository.findOne({
                 where: {
-                    id: userData['c']['scoreId']['id']
+                    //id: userData['c']['scoreId']['id']
+                    id: userData['score']['score']['id']
                 },
                 relations: {
                     certificate: true
