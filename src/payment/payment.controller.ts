@@ -66,10 +66,11 @@ export class PaymentController {
 
             const data = await this.cacheService.get('payment_form')
             const _s = await this.cacheService.get('answers')
-            const _c = await this.cacheService.get('certificate') || 'null'
+            const _c = await this.cacheService.get('certificate') || null
 
             const score = _s ? await this.scoreService.score_calculate(_s['answer_json_list']) : 0;
-            const product_name = _s && _s['product_name'] ? 'test' : 'certificate';
+            //const product_name = _s && _s['product_name'] ? 'test' : 'certificate';
+            let product_name = _c ? 'certificate' : (_s ? 'test' : 'default');
 
             const save_data = {
                 user: {

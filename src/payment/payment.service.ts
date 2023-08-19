@@ -96,11 +96,10 @@ export class PaymentService {
     async create_user(userData:any){
 
         const product_name = userData['product']['name'][0]
-
         const score = new Score()
         score.score = userData['score']['score']
 
-        if (product_name === 'certificate'){
+        if (product_name === 'c'){
             const _score = await this.scoreRepository.findOne({
                 where: {
                     id: userData['c']['scoreId']['id']
@@ -117,9 +116,9 @@ export class PaymentService {
         }else{
             this.scoreRepository.save(score)
         }
-        
 
-        
+
+
 
         const product = new Product()
         product.name = userData['product']['name'][0]
@@ -144,7 +143,7 @@ export class PaymentService {
             this.userId = existsUser.id
             this.userRepository.save(existsUser)
         }else {
-            
+
             user.name = userData['user']['name']
             user.surname = userData['user']['surname']
             user.email = userData['user']['email']
