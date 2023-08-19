@@ -10,6 +10,7 @@ import { NavbarInterceptors } from './middleware/navbar.interceptors';
 import { CacheModule } from '@nestjs/cache-manager';  
 import { redisStore } from 'cache-manager-redis-yet';  
 import { CacheService } from './services/cache.service';
+import { CertificateModule } from "./certificate/certificate.module";
 
 @Global()
 @Module({
@@ -17,6 +18,7 @@ import { CacheService } from './services/cache.service';
     QuestionsModule,
     PaymentModule,
     UserModule,
+    CertificateModule,
     CacheModule.registerAsync(
       {
         isGlobal: true,

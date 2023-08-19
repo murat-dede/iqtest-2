@@ -5,11 +5,12 @@ import { CertificateService } from "./certificate.service";
 import { JwtService } from "src/auth/jwt.service";
 import { ScoreService } from "src/services/score.service";
 import { UserAuthGuard } from "src/auth/auth.guard";
+import { CacheService } from "../services/cache.service";
 
 @Controller('certificate')
 export class CertificateController {
     
-    constructor(private certificateService: CertificateService, private jwtService: JwtService, private scoreService: ScoreService) {}
+    constructor(private certificateService: CertificateService, private jwtService: JwtService, private scoreService: ScoreService, private cacheService: CacheService) {}
 
     @Get()
     @Render('user/certificate')
@@ -21,7 +22,8 @@ export class CertificateController {
 
     @Get('payment/:id')
     payment_certificate(@Param() scoreId:string, @Res() res:FastifyReply, @Session() session:secureSession.Session){
-        session.set('certificate', {scoreId})
+        //session.set('certificate', {scoreId})
+        this.cacheService.set('certificate', {scoreId}, 60000)
         res.redirect(302, '/odeme')
         return true
     }
@@ -32,7 +34,6 @@ export class CertificateController {
     async get_all_certificate(@Session() session:secureSession.Session){
         const token = session.get('token')
         const user_id = this.jwtService.verifyToken(token['token'])
-
         const data = await this.certificateService.get_all_certificate(user_id['id'])
 
         return {

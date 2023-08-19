@@ -50,37 +50,44 @@ $(document).ready(function () {
                     $('#answers').empty();
 
                     Object.keys(now_data.answers).forEach(function (key) {
-                        var item = now_data.answers[key]
+                        var item = now_data.answers[key];
                         if (item.color) {
-                            var li = $('<li>').text(item.text).addClass('d-block').css('color', item.color).appendTo('#answers')
+                            var li = $('<li>').text(item.text).addClass('d-block').css('color', item.color).appendTo('#answers');
                         } else if (item.image) {
                             var li = $('<li>').addClass('d-block').appendTo('#answers');
                             $('<img>').attr('src', item.image).appendTo(li);
-
                         } else {
-                            var li = $('<li>').text(item.text).addClass('d-block').appendTo('#answers')
+                            var li = $('<li>').text(item.text).addClass('d-block').appendTo('#answers');
+                        }
+                        var questionNumber = currentQuestionIndex + 1;
+                        var answerIndex = isAnswerSelected(questionNumber);
+                        if (answerIndex !== -1 && selectedAnswers[answerIndex].chooice === key) {
+                            li.append($('<i>').addClass('fas fa-check-circle').css('margin-left', '5px'));
                         }
 
                         // Selected Answers
                         li.on('click', function () {
-                            var questionNumber = currentQuestionIndex + 1
-                            var answerIndex = isAnswerSelected(questionNumber);
-
+                            var answerIndex = isAnswerSelected(questionNumber); // Her bir şık için ayrı answerIndex değeri oluştur
                             if (answerIndex === -1) {
-
                                 var selecedAnswer = {
                                     questionNumber: questionNumber,
                                     chooice: key
-                                }
+                                };
                                 $('#answers li i').removeClass('fas fa-check-circle');
-                                li.append($('<i>').addClass('fas fa-check-circle').css('margin-left', '5px'))
-                                selectedAnswers.push(selecedAnswer)
-                                showNextQuestion()
+                                li.append($('<i>').addClass('fas fa-check-circle').css('margin-left', '5px'));
+                                selectedAnswers.push(selecedAnswer);
+                                setTimeout(function(){
+                                    showNextQuestion();
+                                }, 500);
                             } else {
-                                li.find('i').removeClass().addClass('fas fa-check-circle');
-                                selectedAnswers[answerIndex].chooice = key
+                                // Seçili şık değiştirildiğinde cevabı güncelle
+                                selectedAnswers[answerIndex].chooice = key;
+                                $('#answers li i').removeClass('fas fa-check-circle');
+                                li.append($('<i>').addClass('fas fa-check-circle').css('margin-left', '5px'));
                             }
-                        })
+                        });
+
+
                     })
                 }
 

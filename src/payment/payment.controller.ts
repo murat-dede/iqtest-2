@@ -19,7 +19,7 @@ export class PaymentController {
         ) {}
 
     @Get()
-    @Render('payment')
+    @Render('payment/')
     async get_payment_page(@Session() session:secureSession.Session):Promise<any>{
         try{
             const payment_form:any = await this.cacheService.get('payment_form')
@@ -49,6 +49,7 @@ export class PaymentController {
         const _c = await this.cacheService.get('certificate') || null
 
         let product_name = _c ? 'certificate' : (_s ? 'test' : 'default');
+
         if (_s || _c){
             const payment_form = await this.paymentService.create_payment_form(bodyData, product_name)
             //session.set('payment_form', payment_form?.data?.CheckoutFormData)
