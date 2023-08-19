@@ -10,7 +10,7 @@ import { UserAuthGuard } from "src/auth/auth.guard";
 export class UserController {
     constructor(private userService: UserService, private jwtService: JwtService) {}
     verify:boolean
-    @Get('result/:id')
+    @Get('result/:id?')
     @Render('result')
     async get_result_page(@Param() userId:string){
         const data =await this.userService.get_user_data(userId['id'])

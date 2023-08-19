@@ -100,7 +100,7 @@ export class PaymentService {
         const score = new Score()
         score.score = userData['score']['score']
 
-        if (product_name === 'c'){
+        if (product_name === 'certificate'){
             const _score = await this.scoreRepository.findOne({
                 where: {
                     id: userData['c']['scoreId']['id']

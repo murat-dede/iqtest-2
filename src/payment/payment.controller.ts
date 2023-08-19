@@ -94,6 +94,7 @@ export class PaymentController {
             const response = await this.paymentService.create_user(save_data)
             await this.cacheService.delete('payment_form')
             session.delete()
+
             res.redirect(302, '/user/result/' + response)
         }else{
             await this.cacheService.delete('payment_form')
