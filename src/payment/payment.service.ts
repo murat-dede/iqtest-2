@@ -102,8 +102,7 @@ export class PaymentService {
         if (product_name === 'certificate'){
             const _score = await this.scoreRepository.findOne({
                 where: {
-                    //id: userData['c']['scoreId']['id']
-                    id: userData['score']['score']['id']
+                    id: userData['c']['scoreId']['id']
                 },
                 relations: {
                     certificate: true
@@ -117,9 +116,6 @@ export class PaymentService {
         }else{
             this.scoreRepository.save(score)
         }
-
-
-
 
         const product = new Product()
         product.name = userData['product']['name'][0]
