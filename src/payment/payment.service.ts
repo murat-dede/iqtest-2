@@ -78,10 +78,9 @@ export class PaymentService {
                     ]
             }
 
-            // Fetch Data
-            // https://testapi.weepay.co/Payment/PaymentCreate
+
             
-            const response = await axios.post('https://testapi.weepay.co/Payment/PaymentCreate', payment_variable)
+            const response = await axios.post('https://api.shopier.com/v1/payments', payment_variable)
             
             return {
                 data: response.data,
